@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  {% include 'dashboard/sidebarmenu.html' %}
+  
+  <div class="flex gap-4">
+    {% for produit in produits%}
+    <div class="w-64 h-32 flex flex-col items-center justify-between rounded-xl shadow-2xl ">
+      <div class="flex gap-3 m-5">
+        <img scr="{{produit.image}}" class="w-8 h-8"/>
+        <div>{{produit.nom}}</div>
+        <div>{{produit.prix}}€</div>
+      </div>
+      <div class="flex flex-row items-center justify-end m-5 gap-5">
+        <input id="produit-{{produit.id_produit}}" onchange="valueChange({{produit.id_produit}})" class="w-full font-normal text-xl bg-gray-300 text-black text-center rounded-xl" type="number" name="" id="" value="{{produit.quantite}}">
+        <button id="produit-button-{{produit.id_produit}}" onclick="changerStock({{produit.id_produit}})" class="text-white rounded-xl px-2 py-1 bg-green-500 hover:bg-green-600">Valider</button>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+
+    
+  <script>
+    function changerStock(id){
+      quantite = parseInt(document.querySelector(`#produit-${id}`).value)
+
+      fetch("/api/changerstock", {
+        method: "POST",
+        body: JSON.stringify({
+          id: id,
+          quantite: quantite
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+
+      el = document.querySelector(`#produit-button-${id}`)
+      el.className = el.className.replace("bg-blue-500 hover:bg-blue-600", "bg-green-500 hover:bg-green-600")
+    
+    }
+
+    function valueChange(id) {
+      el = document.querySelector(`#produit-button-${id}`)
+      el.className = el.className.replace("bg-green-500 hover:bg-green-600", "bg-blue-500 hover:bg-blue-600")
+    }
+  </script>
+</body>
+</html>
