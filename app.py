@@ -224,6 +224,9 @@ def supprimer_produit():
     print(request.json)
     id = request.json["id"]
     db.supprimer_produit(id)
+    for extention in ALLOWED_EXTENSIONS:
+        if os.path.exists(f"./static/produits/{id}.{extention}"):
+            os.remove(f"./static/produits/{id}.{extention}")
     return "ok"
 
 @app.route('/api/modifierproduit', methods=['POST'])
