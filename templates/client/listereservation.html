@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Réservations</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  {% include 'utils/header.html' %}
 </head>
 <body>
   {% include 'client/sidebarmenu.html' %}
@@ -24,6 +22,7 @@
             <div class="flex flex-row items-center justify-end m-5 gap-5">
               <div class="font-bold">{{reservation.prix}}€</div>
               <button
+                onclick="retirerProduit({{reservation.id_reservation}})"
                 id="produit-button-{{reservation.id_produit}}-{{i}}"
                 class="text-white rounded-xl px-2 py-1 bg-red-500 hover:bg-red-600"
               >
@@ -36,4 +35,22 @@
         </div>
           </div>
         </div>
+        <script>
+          async function retirerProduit(id_reservation) {
+            try {
+              const response =await fetch("/api/retirerreservation", {
+              method: "POST",
+              body: JSON.stringify({id_reservation: id_reservation}),
+              headers: {
+                "Content-type": "application/json; charset=UTF-8"
+              }
+            })
+            const json = await response.json()
+
+            window.setTimeout('history.go(0)', 100)
+          } catch (error) {
+            console.error(error.message);
+          }
+          }
+        </script>
 </body>
