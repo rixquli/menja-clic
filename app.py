@@ -88,6 +88,7 @@ def client_reservation():
         if db.isAdmin(session['username']):
             return redirect(url_for('dashboard'))
         liste_reservation = db.get_reservation_client(session["username"])
+        print(liste_reservation)
         user = db.get_account(session["username"])
         panier = db.get_panier(session['username'])
         panier_total= db.get_panier_total(session['username'])

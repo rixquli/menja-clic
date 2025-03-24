@@ -151,6 +151,7 @@ def get_reservations():
     for ligne in res:  
         format_list.append({
             "id_produit": ligne[2],
+            "client" : ligne[1],
             "nom": ligne[6],
             "prix": ligne[7],
             "classe": ligne[8],
