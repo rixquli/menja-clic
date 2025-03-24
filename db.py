@@ -393,6 +393,16 @@ def retirer_reservation(id_resevation, code_barre):
     cur.execute("DELETE FROM Reservation WHERE id = ?", (id_resevation,))
     con.commit()
 
+def retirer_reservation_admin(id_resevation):
+    id_produit = cur.execute(
+        """
+        SELECT produit
+            FROM Reservation WHERE id = ?
+        """, (id_resevation,)).fetchone()[0]
+    modifier_produit_quantite(id_produit,1)
+    cur.execute("DELETE FROM Reservation WHERE id = ?", (id_resevation,))
+    con.commit()
+
 #temp()
 classe ={
     "Chaud": 1,

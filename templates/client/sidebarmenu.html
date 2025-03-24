@@ -1,4 +1,10 @@
-<div id="panier" class="hidden relative z-50" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+<div
+  id="panier"
+  class="hidden relative z-50"
+  aria-labelledby="slide-over-title"
+  role="dialog"
+  aria-modal="true"
+>
   <!--
     Background backdrop, show/hide based on slide-over state.
 
@@ -9,11 +15,16 @@
       From: "opacity-100"
       To: "opacity-0"
   -->
-  <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
+  <div
+    class="fixed inset-0 bg-gray-500/75 transition-opacity"
+    aria-hidden="true"
+  ></div>
 
   <div class="fixed inset-0 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
-      <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+      <div
+        class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+      >
         <!--
           Slide-over panel, show/hide based on slide-over state.
 
@@ -25,16 +36,39 @@
             To: "translate-x-full"
         -->
         <div class="pointer-events-auto w-screen max-w-md">
-          <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+          <div
+            class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+          >
             <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
               <div class="flex items-start justify-between">
-                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Panier</h2>
+                <h2
+                  class="text-lg font-medium text-gray-900"
+                  id="slide-over-title"
+                >
+                  Panier
+                </h2>
                 <div class="ml-3 flex h-7 items-center">
-                  <button onclick="location.href = location.search.replace('?panier=true', '').replace('?panier=false', '') + '?panier=false'" type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
+                  <button
+                    onclick="location.href = location.search.replace('?panier=true', '').replace('?panier=false', '') + '?panier=false'"
+                    type="button"
+                    class="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                  >
                     <span class="absolute -inset-0.5"></span>
                     <span class="sr-only">Close panel</span>
-                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    <svg
+                      class="size-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                      data-slot="icon"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -42,34 +76,68 @@
 
               <div class="mt-8">
                 <div class="flow-root">
-                  <ul id="panier-products-parent" role="list" class="-my-6 divide-y divide-gray-200">
+                  <ul
+                    id="panier-products-parent"
+                    role="list"
+                    class="-my-6 divide-y divide-gray-200"
+                  >
                     {%for produit in panier%}
                     <li class="flex py-6">
-                      <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                        <img src="{{produit.image}}" alt="" class="size-full object-cover">
+                      <div
+                        class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200"
+                      >
+                        <img
+                          src="{{produit.image}}"
+                          alt=""
+                          class="size-full object-cover"
+                        />
                       </div>
 
                       <div class="ml-4 flex flex-1 flex-col">
                         <div>
-                          <div class="flex justify-between text-base font-medium text-gray-900">
+                          <div
+                            class="flex justify-between text-base font-medium text-gray-900"
+                          >
                             <h3>
                               <a href="#">{{produit.nom}}</a>
                             </h3>
                             <p class="ml-4">{{produit.prix}}€</p>
                           </div>
-                          <p class="mt-1 text-sm text-gray-500">{{produit.description}}</p>
+                          <p class="mt-1 text-sm text-gray-500">
+                            {{produit.description}}
+                          </p>
                         </div>
-                        <div class="flex flex-1 items-end justify-between text-sm">
-                          <p class="text-gray-500">Quantité: {{produit.quantite}}</p>
+                        <div
+                          class="flex flex-1 items-end justify-between text-sm"
+                        >
+                          <p class="text-gray-500">
+                            Quantité: {{produit.quantite}}
+                          </p>
 
                           <div class="flex">
                             <div class="mr-5 flex gap-3">
-                              <button id="produit-button-{{produit.id_produit}}-minus"
-                              onclick="ajouter_panier({{produit.id_produit}}, -1)" class="text-2xl px-3 font-medium text-indigo-600 hover:text-indigo-500 shadow-2xl rounded-xl" >-</button>
-                              <button id="produit-button-{{produit.id_produit}}-plus"
-                              onclick="ajouter_panier({{produit.id_produit}}, 1)"class="text-2xl px-3 font-medium text-indigo-600 hover:text-indigo-500 shadow-2xl rounded-xl" >+</button>
+                              <button
+                                id="produit-button-{{produit.id_produit}}-minus"
+                                onclick="ajouter_panier({{produit.id_produit}}, -1)"
+                                class="text-2xl px-3 font-medium text-indigo-600 hover:text-indigo-500 shadow-2xl rounded-xl"
+                              >
+                                -
+                              </button>
+                              <button
+                                id="produit-button-{{produit.id_produit}}-plus"
+                                onclick="ajouter_panier({{produit.id_produit}}, 1)"
+                                class="text-2xl px-3 font-medium text-indigo-600 hover:text-indigo-500 shadow-2xl rounded-xl"
+                              >
+                                +
+                              </button>
                             </div>
-                            <button onclick="ajouter_panier({{produit.id_produit}}, -{{produit.quantite}})" type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Supprimer</button>
+                            <button
+                              onclick="ajouter_panier({{produit.id_produit}}, -{{produit.quantite}})"
+                              type="button"
+                              class="font-medium text-indigo-600 hover:text-indigo-500"
+                            >
+                              Supprimer
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -82,18 +150,33 @@
             </div>
 
             <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-              <div class="flex justify-between text-base font-medium text-gray-900">
+              <div
+                class="flex justify-between text-base font-medium text-gray-900"
+              >
                 <p>Total</p>
                 <p>{{panier_total}}€</p>
               </div>
-              <p class="mt-0.5 text-sm text-gray-500">Total de la réservation à payer sur place</p>
+              <p class="mt-0.5 text-sm text-gray-500">
+                Total de la réservation à payer sur place
+              </p>
               <div class="mt-6">
-                <button onclick="ValiderPanier()" class="flex items-center justify-center mx-auto w-full  rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Valider</button>
+                <button
+                  onclick="ValiderPanier()"
+                  class="flex items-center justify-center mx-auto w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700"
+                >
+                  Valider
+                </button>
               </div>
-              <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+              <div
+                class="mt-6 flex justify-center text-center text-sm text-gray-500"
+              >
                 <p>
                   ou
-                  <button onclick="location.href = location.search.replace('?panier=true', '').replace('?panier=false', '') + '?panier=false'" type="button" class="font-medium text-indigo-600 hover:text-indigo-500">
+                  <button
+                    onclick="location.href = location.search.replace('?panier=true', '').replace('?panier=false', '') + '?panier=false'"
+                    type="button"
+                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                  >
                     Continuer de réserver
                     <span aria-hidden="true"> &rarr;</span>
                   </button>
@@ -107,99 +190,97 @@
   </div>
 </div>
 <div class="relative h-16 font-[sans-serif] w-full bg-slate-100">
-    <div class="flex items-start">
-      <nav id="sidebar" class="lg:min-w-[250px] w-max max-lg:min-w-8">
+  <div class="flex items-start">
+    <nav id="sidebar" class="lg:min-w-[250px] w-max max-lg:min-w-8">
+      <div
+        id="sidebar-collapse-menu"
+        class="bg-white h-screen fixed top-0 left-0 overflow-auto z-[99] lg:min-w-[250px] lg:w-max max-lg:w-0 max-lg:invisible transition-all duration-500 shadow-2xl"
+      >
         <div
-          id="sidebar-collapse-menu"
-          class="bg-white h-screen fixed top-0 left-0 overflow-auto z-[99] lg:min-w-[250px] lg:w-max max-lg:w-0 max-lg:invisible transition-all duration-500 shadow-2xl"
+          class="flex items-center gap-2 pt-6 pb-2 px-4 sticky top-0 bg-white min-h-[64px] z-[100]"
         >
-          <div
-            class="flex items-center gap-2 pt-6 pb-2 px-4 sticky top-0 bg-white min-h-[64px] z-[100]"
-          >
-            <a href="javascript:void(0)"
-              ><img src="/static/logoMC.png" alt="logo" class="w-[140px]" />
-            </a>
-            <button id="close-sidebar" class="lg:hidden ml-auto">
-              <svg
-                class="w-7 h-7"
-                fill="#000"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+          <a href="javascript:void(0)"
+            ><img src="/static/logoMC.png" alt="logo" class="w-[140px]" />
+          </a>
+          <button id="close-sidebar" class="lg:hidden ml-auto">
+            <svg
+              class="w-7 h-7"
+              fill="#000"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="py-4 px-4">
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="/"
+                class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
-          <div class="py-4 px-4">
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="/"
-                  class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  class="w-[18px] h-[18px] mr-3"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    class="w-[18px] h-[18px] mr-3"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19.56 23.253H4.44a4.051 4.051 0 0 1-4.05-4.05v-9.115c0-1.317.648-2.56 1.728-3.315l7.56-5.292a4.062 4.062 0 0 1 4.644 0l7.56 5.292a4.056 4.056 0 0 1 1.728 3.315v9.115a4.051 4.051 0 0 1-4.05 4.05zM12 2.366a2.45 2.45 0 0 0-1.393.443l-7.56 5.292a2.433 2.433 0 0 0-1.037 1.987v9.115c0 1.34 1.09 2.43 2.43 2.43h15.12c1.34 0 2.43-1.09 2.43-2.43v-9.115c0-.788-.389-1.533-1.037-1.987l-7.56-5.292A2.438 2.438 0 0 0 12 2.377z"
-                      data-original="#000000"
-                    />
-                    <path
-                      d="M16.32 23.253H7.68a.816.816 0 0 1-.81-.81v-5.4c0-2.83 2.3-5.13 5.13-5.13s5.13 2.3 5.13 5.13v5.4c0 .443-.367.81-.81.81zm-7.83-1.62h7.02v-4.59c0-1.933-1.577-3.51-3.51-3.51s-3.51 1.577-3.51 3.51z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  <span
-                    class="overflow-hidden text-ellipsis whitespace-nowrap"
-                    >Acceuil</span
-                  >
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="/client/listereservation"
-                  class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300"
+                  <path
+                    d="M19.56 23.253H4.44a4.051 4.051 0 0 1-4.05-4.05v-9.115c0-1.317.648-2.56 1.728-3.315l7.56-5.292a4.062 4.062 0 0 1 4.644 0l7.56 5.292a4.056 4.056 0 0 1 1.728 3.315v9.115a4.051 4.051 0 0 1-4.05 4.05zM12 2.366a2.45 2.45 0 0 0-1.393.443l-7.56 5.292a2.433 2.433 0 0 0-1.037 1.987v9.115c0 1.34 1.09 2.43 2.43 2.43h15.12c1.34 0 2.43-1.09 2.43-2.43v-9.115c0-.788-.389-1.533-1.037-1.987l-7.56-5.292A2.438 2.438 0 0 0 12 2.377z"
+                    data-original="#000000"
+                  />
+                  <path
+                    d="M16.32 23.253H7.68a.816.816 0 0 1-.81-.81v-5.4c0-2.83 2.3-5.13 5.13-5.13s5.13 2.3 5.13 5.13v5.4c0 .443-.367.81-.81.81zm-7.83-1.62h7.02v-4.59c0-1.933-1.577-3.51-3.51-3.51s-3.51 1.577-3.51 3.51z"
+                    data-original="#000000"
+                  />
+                </svg>
+                <span class="overflow-hidden text-ellipsis whitespace-nowrap"
+                  >Acceuil</span
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    class="w-[18px] h-[18px] mr-3"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M18 2c2.206 0 4 1.794 4 4v12c0 2.206-1.794 4-4 4H6c-2.206 0-4-1.794-4-4V6c0-2.206 1.794-4 4-4zm0-2H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h12a6 6 0 0 0 6-6V6a6 6 0 0 0-6-6z"
-                      data-original="#000000"
-                    />
-                    <path
-                      d="M12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v10a1 1 0 0 1-1 1z"
-                      data-original="#000000"
-                    />
-                    <path
-                      d="M6 12a1 1 0 0 1 1-1h10a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  <span
-                    class="overflow-hidden text-ellipsis whitespace-nowrap"
-                    >Réservations</span
-                  >
-                </a>
-              </li>
-            </ul>
+              </a>
+            </li>
 
-            <div class="mt-6">
-              <h6 class="text-blue-600 text-sm font-bold px-3">Paramètres</h6>
-              <ul class="mt-3 space-y-2">
-                <!-- <li>
+            <li>
+              <a
+                href="/client/listereservation"
+                class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  class="w-[18px] h-[18px] mr-3"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18 2c2.206 0 4 1.794 4 4v12c0 2.206-1.794 4-4 4H6c-2.206 0-4-1.794-4-4V6c0-2.206 1.794-4 4-4zm0-2H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h12a6 6 0 0 0 6-6V6a6 6 0 0 0-6-6z"
+                    data-original="#000000"
+                  />
+                  <path
+                    d="M12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v10a1 1 0 0 1-1 1z"
+                    data-original="#000000"
+                  />
+                  <path
+                    d="M6 12a1 1 0 0 1 1-1h10a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1z"
+                    data-original="#000000"
+                  />
+                </svg>
+                <span class="overflow-hidden text-ellipsis whitespace-nowrap"
+                  >Réservations</span
+                >
+              </a>
+            </li>
+          </ul>
+
+          <div class="mt-6">
+            <h6 class="text-blue-600 text-sm font-bold px-3">Paramètres</h6>
+            <ul class="mt-3 space-y-2">
+              <!-- <li>
                   <a
                     href="javascript:void(0)"
                     class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300"
@@ -222,169 +303,173 @@
                     <span>Profil</span>
                   </a>
                 </li> -->
-                <li>
-                  <a
-                    href="/logout"
-                    class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300"
+              <li>
+                <a
+                  href="/logout"
+                  class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    class="w-[18px] h-[18px] mr-3"
+                    viewBox="0 0 32 32"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      class="w-[18px] h-[18px] mr-3"
-                      viewBox="0 0 32 32"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M20.063 7.94a3.96 3.96 0 0 1-5.342 3.713l2.362 2.815a6.601 6.601 0 1 0-7.24-8.627l2.364 2.818a3.96 3.96 0 1 1 7.856-.718zm-7.885 9.415L3.718 7.35A1.32 1.32 0 1 1 5.73 5.645l20.055 23.712a1.32 1.32 0 1 1-2.015 1.705l-2.03-2.401a8.886 8.886 0 0 1-2.645.4H13.11a8.886 8.886 0 0 1-8.886-8.886c0-.518.272-.993.747-1.198 1.095-.47 3.427-1.27 7.208-1.622zm7.634 9.025c-.235.026-.474.04-.716.04H13.11a6.248 6.248 0 0 1-6.184-5.362c1.35-.454 3.751-1.047 7.37-1.2zm-.347-9.072 2.476 2.95a21.397 21.397 0 0 1 3.34.8 6.204 6.204 0 0 1-.78 2.25l1.77 2.111a8.845 8.845 0 0 0 1.712-5.244c0-.518-.272-.993-.747-1.198-1.149-.493-3.657-1.349-7.771-1.67z"
-                        clip-rule="evenodd"
-                        data-original="#000000"
-                      />
-                    </svg>
-                    <span>Se déconnecter</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+                    <path
+                      fill-rule="evenodd"
+                      d="M20.063 7.94a3.96 3.96 0 0 1-5.342 3.713l2.362 2.815a6.601 6.601 0 1 0-7.24-8.627l2.364 2.818a3.96 3.96 0 1 1 7.856-.718zm-7.885 9.415L3.718 7.35A1.32 1.32 0 1 1 5.73 5.645l20.055 23.712a1.32 1.32 0 1 1-2.015 1.705l-2.03-2.401a8.886 8.886 0 0 1-2.645.4H13.11a8.886 8.886 0 0 1-8.886-8.886c0-.518.272-.993.747-1.198 1.095-.47 3.427-1.27 7.208-1.622zm7.634 9.025c-.235.026-.474.04-.716.04H13.11a6.248 6.248 0 0 1-6.184-5.362c1.35-.454 3.751-1.047 7.37-1.2zm-.347-9.072 2.476 2.95a21.397 21.397 0 0 1 3.34.8 6.204 6.204 0 0 1-.78 2.25l1.77 2.111a8.845 8.845 0 0 0 1.712-5.244c0-.518-.272-.993-.747-1.198-1.149-.493-3.657-1.349-7.771-1.67z"
+                      clip-rule="evenodd"
+                      data-original="#000000"
+                    />
+                  </svg>
+                  <span>Se déconnecter</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <button
-        id="open-sidebar"
-        class="lg:hidden ml-4 mt-4 fixed top-0 left-0  z-[50]"
+    <button
+      id="open-sidebar"
+      class="lg:hidden ml-4 mt-4 fixed top-0 left-0 z-[50]"
+    >
+      <svg
+        class="w-7 h-7"
+        fill="#000"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          class="w-7 h-7"
-          fill="#000"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
-      </button>
+        <path
+          fill-rule="evenodd"
+          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </button>
 
+    <div class="absolute right-2 top-4 flex justify-center items-center gap-4">
+      <div class="font-semibold py-1 px-2">{{user.prenom}} {{user.nom}}</div>
       <div
-        class="absolute right-2 top-4 flex justify-center items-center gap-4"
+        class="font-bold bg-slate-200 rounded-xl py-1 px-2 hover:bg-slate-300 hover:cursor-pointer"
       >
-        <div class="font-semibold py-1 px-2">
-          {{user.prenom}} {{user.nom}}
-        </div>
-        <div class="font-bold bg-slate-200 rounded-xl py-1 px-2 hover:bg-slate-300 hover:cursor-pointer">
-          {{user.solde}}€
-        </div>
-        <button onclick="location.href = location.search.replace('?panier=true', '').replace('?panier=false', '') + '?panier=true'">
-          <img
+        {{user.solde}}€
+      </div>
+      <button
+        onclick="location.href = location.search.replace('?panier=true', '').replace('?panier=false', '') + '?panier=true'"
+      >
+        <img
           src="/static/panier.png"
           alt=""
           srcset=""
           class="h-10 bg-slate-200 rounded-xl p-2 hover:bg-slate-300 hover:cursor-pointer"
-          />
-        </button>
-      </div>
+        />
+      </button>
     </div>
+  </div>
 
-    <script>
-      async function getData() {
-        const url = "/api/getpanier";
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+  <script>
+    async function getData() {
+      const url = "/api/getpanier";
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+
+        const json = await response.json();
+        return json;
+        console.log(json);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+
+    function OpenPanier() {
+      let panier = document.querySelector("#panier");
+      if (panier.classList.contains("hidden")) {
+        panier.classList.remove("hidden");
+      } else {
+        panier.classList.add("hidden");
+      }
+    }
+    function ClosePanier() {
+      let panier = document.querySelector("#panier");
+      if (panier.classList.contains("hidden")) {
+        panier.classList.remove("hidden");
+      } else {
+        panier.classList.add("hidden");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Select all parent menu items with submenus
+      document.querySelectorAll("#sidebar ul > li > a").forEach((menu) => {
+        menu.addEventListener("click", () => {
+          const subMenu = menu.nextElementSibling;
+          if (!subMenu) return;
+          const arrowIcon = menu.querySelector(".arrowIcon");
+
+          // Check if the submenu is currently open
+          if (subMenu.classList.contains("max-h-0")) {
+            subMenu.classList.remove("max-h-0");
+            subMenu.classList.add("max-h-[500px]"); // Adjust height as needed
+          } else {
+            subMenu.classList.remove("max-h-[500px]");
+            subMenu.classList.add("max-h-0");
           }
-      
-          const json = await response.json();
-          return json
-          console.log(json);
-        } catch (error) {
-          console.error(error.message);
-        }
-      }
 
-      function OpenPanier()
-      {
-        let panier = document.querySelector("#panier")
-        if (panier.classList.contains("hidden")) {
-          panier.classList.remove("hidden");
-        } else {
-          panier.classList.add("hidden");
-        }
-      }
-      function ClosePanier()
-      {
-        let panier = document.querySelector("#panier")
-        if (panier.classList.contains("hidden")) {
-          panier.classList.remove("hidden");
-        } else {
-          panier.classList.add("hidden");
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        // Select all parent menu items with submenus
-        document.querySelectorAll("#sidebar ul > li > a").forEach((menu) => {
-          menu.addEventListener("click", () => {
-            const subMenu = menu.nextElementSibling;
-            if (!subMenu) return;
-            const arrowIcon = menu.querySelector(".arrowIcon");
-
-            // Check if the submenu is currently open
-            if (subMenu.classList.contains("max-h-0")) {
-              subMenu.classList.remove("max-h-0");
-              subMenu.classList.add("max-h-[500px]"); // Adjust height as needed
-            } else {
-              subMenu.classList.remove("max-h-[500px]");
-              subMenu.classList.add("max-h-0");
-            }
-
-            // Toggle arrow rotation
-            arrowIcon.classList.toggle("rotate-0");
-            arrowIcon.classList.toggle("-rotate-90");
-          });
-        });
-
-        let sidebarCloseBtn = document.getElementById("close-sidebar");
-        let sidebarOpenBtn = document.getElementById("open-sidebar");
-        let sidebarCollapseMenu = document.getElementById(
-          "sidebar-collapse-menu"
-        );
-
-        sidebarOpenBtn.addEventListener("click", () => {
-          sidebarCollapseMenu.style.cssText =
-            "width: 250px; visibility: visible; opacity: 1;";
-        });
-
-        sidebarCloseBtn.addEventListener("click", () => {
-          sidebarCollapseMenu.style.cssText =
-            "width: 32px; visibility: hidden; opacity: 0;";
+          // Toggle arrow rotation
+          arrowIcon.classList.toggle("rotate-0");
+          arrowIcon.classList.toggle("-rotate-90");
         });
       });
 
-      async function ajouter_panier(id, quantite = 1){
-        const res = await fetch("/api/ajouterpanier", {
-          method: "POST",
-          body: JSON.stringify({
-            id: id,
-            quantite: quantite
-          }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8"
-          }
-        });
-        const json = await res.json()
-        window.setTimeout('history.go(0)', 100)
+      let sidebarCloseBtn = document.getElementById("close-sidebar");
+      let sidebarOpenBtn = document.getElementById("open-sidebar");
+      let sidebarCollapseMenu = document.getElementById(
+        "sidebar-collapse-menu"
+      );
 
-      }
+      sidebarOpenBtn.addEventListener("click", () => {
+        sidebarCollapseMenu.style.cssText =
+          "width: 250px; visibility: visible; opacity: 1;";
+      });
 
-      function childrenPanier(image, nom, prix, quantite, id_produit, description = "") {
-        // Create a temporary div element to hold the HTML string
-        const tempDiv = document.createElement('div');
-        
-        // Set the innerHTML of the div to the string returned from your template
-        tempDiv.innerHTML = `
+      sidebarCloseBtn.addEventListener("click", () => {
+        sidebarCollapseMenu.style.cssText =
+          "width: 32px; visibility: hidden; opacity: 0;";
+      });
+    });
+
+    async function ajouter_panier(id, quantite = 1) {
+      const res = await fetch("/api/ajouterpanier", {
+        method: "POST",
+        body: JSON.stringify({
+          id: id,
+          quantite: quantite,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      const json = await res.json();
+      window.setTimeout("history.go(0)", 100);
+    }
+
+    function childrenPanier(
+      image,
+      nom,
+      prix,
+      quantite,
+      id_produit,
+      description = ""
+    ) {
+      // Create a temporary div element to hold the HTML string
+      const tempDiv = document.createElement("div");
+
+      // Set the innerHTML of the div to the string returned from your template
+      tempDiv.innerHTML = `
           <li class="flex py-6">
             <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
               <img src="${image}" alt="" class="size-full object-cover">
@@ -417,67 +502,66 @@
               </div>
             </div>
           </li>`;
-    
-        // Return the first child (which will be the <li> element)
-        return tempDiv.firstElementChild;
+
+      // Return the first child (which will be the <li> element)
+      return tempDiv.firstElementChild;
     }
 
-      panierListParent = document.querySelector("#panier-products-parent")
-      async function updatePanier() {
-        const url = "/api/getpanier";
-        console.log("h")
-        try {
-          const response = await fetch("/api/getpanier");
-          if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-          }
-      
-          const json = await response.json();
-          window.setTimeout('history.go(0)', 100)
-        } catch (error) {
-          console.error(error.message);
+    panierListParent = document.querySelector("#panier-products-parent");
+    async function updatePanier() {
+      const url = "/api/getpanier";
+      console.log("h");
+      try {
+        const response = await fetch("/api/getpanier");
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
         }
-      }
 
-      async function ValiderPanier() {
-        try {
-          const response =await fetch("/api/validerpanier", {
+        const json = await response.json();
+        window.setTimeout("history.go(0)", 100);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+
+    async function ValiderPanier() {
+      try {
+        const response = await fetch("/api/validerpanier", {
           method: "POST",
           body: "",
           headers: {
-            "Content-type": "application/json; charset=UTF-8"
-          }
-        })
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
 
         const json = await response.json();
-        window.setTimeout('history.go(0)', 100)
-        if(json.response)
-        {
-          ClosePanier()
+        window.setTimeout("history.go(0)", 100);
+        if (json.response) {
+          ClosePanier();
         } else {
-          alert("Solde insuffisant")
+          alert("Solde insuffisant");
         }
       } catch (error) {
         console.error(error.message);
       }
-      }
-
-      function findGetParameter(parameterName) {
-        var result = null,
-            tmp = [];
-        location.search
-            .substr(1)
-            .split("&")
-            .forEach(function (item) {
-              tmp = item.split("=");
-              if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-            });
-        return result;
     }
 
-    if(findGetParameter("panier")=="true") {
-      OpenPanier()
+    function findGetParameter(parameterName) {
+      var result = null,
+        tmp = [];
+      location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+      return result;
     }
-    </script>
+
+    if (findGetParameter("panier") == "true") {
+      OpenPanier();
+    }
+  </script>
 </div>
-<div class="lg:ml-[250px] max-lg:ml-8 mr-2 m-2">
+<div class="lg:ml-[250px] max-lg:ml-2 mr-2 m-2">

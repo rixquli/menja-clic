@@ -181,7 +181,19 @@ def retirer_reservation():
             return redirect(url_for('dashboard'))
     id_resevation = request.json["id_reservation"]
     id_client = session["username"]
-    return {"response":db.retirer_reservation(id_resevation, id_client)}
+    db.retirer_reservation(id_resevation, id_client)
+    return {"response":"200"}
+
+@app.route('/api/retirerreservationadmin', methods=['POST'])
+def retirer_reservation_admin():
+    if 'username' not in session:
+        flash("Veuillez vous connecter pour accéder à cette page.", "warning")
+        return redirect(url_for('login'))
+    if not db.isAdmin(session['username']):
+            return redirect(url_for('client'))
+    id_resevation = request.json["id_reservation"]
+    db.retirer_reservation_admin(id_resevation)
+    return {"response":"200"}
 
 @app.route('/api/ajouterproduit', methods=['POST'])
 def ajouter_produit():
