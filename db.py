@@ -4,14 +4,6 @@ import random
 
 con = sqlite3.connect("db.db", check_same_thread=False)
 cur = con.cursor()
-
-def temp():
-    res = cur.execute("""
-                   
-                   )
-                """)
-    con.commit()
-    print(res)
     
 def login(code_barre, password):
     res = cur.execute("SELECT COUNT(*) FROM client WHERE code_barre = ? AND mot_de_passe = ?", (code_barre, password))
@@ -220,7 +212,6 @@ def paiement(liste_produits, code_barre, password):
     
     # Mise à jour liste réservation
     
-    
     # Mise à jour historique
     
     con.commit()
@@ -399,7 +390,6 @@ def retirer_reservation_admin(id_resevation):
         SELECT produit
             FROM Reservation WHERE id = ?
         """, (id_resevation,)).fetchone()[0]
-    modifier_produit_quantite(id_produit,1)
     cur.execute("DELETE FROM Reservation WHERE id = ?", (id_resevation,))
     con.commit()
 
@@ -438,7 +428,6 @@ def generate_password(length=12):
     characters = string.ascii_letters + string.digits
     password = ''.join(random.choice(characters) for i in range(length))
     return password
-    
     
 def ajouter_compte(prenom, nom, code):
     mdp = generate_password(8)
