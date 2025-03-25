@@ -8,25 +8,37 @@
 
 Suivre les étapes suivantes pour installer le projet localement :
 
-1. Se rendre dans le dossier du projet :
+1. Cloner le projet :
+
+```bash
+git clone https://github.com/rixquli/menja-clic.git
+```
+
+2. Se rendre dans le dossier du projet :
+
+```bash
+cd menja-clic
+```
+
+3. Se rendre dans le dossier du projet :
 
 ```bash
 cd sources
 ```
 
-2.Installer les librairies :
+4. Installer les librairies :
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3.Lancer le serveur :
+5. Lancer le serveur :
 
 ```bash
 python main.py
 ```
 
-4.Accéder à l'interface en ouvrant un navigateur à l'adresse :
+6. Accéder à l'interface en ouvrant un navigateur à l'adresse :
 
 ```bash
 http://127.0.0.1:5000
