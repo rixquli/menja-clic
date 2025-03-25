@@ -8,7 +8,7 @@
 
 Suivre les étapes suivantes pour installer le projet localement :
 
-1. Cloner le projet :
+1. Cloner le projet si vous avez git d'installé sinon télécharger le projet en zip :
 
 ```bash
 git clone https://github.com/rixquli/menja-clic.git
@@ -42,6 +42,18 @@ python main.py
 
 ```bash
 http://127.0.0.1:5000
+```
+
+#### Ou bien :
+
+**Pour tout faire en une seule commande :**
+
+```bash
+git clone https://github.com/rixquli/menja-clic.git
+cd menja-clic
+cd sources
+pip install -r requirements.txt
+python main.py
 ```
 
 Sinon, vous pouvez accéder à l'interface en ligne à l'adresse suivante : [MENJA'CLICK](https://menjaclic-9d4ff48bbfb7.herokuapp.com)
