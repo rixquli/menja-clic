@@ -50,8 +50,7 @@ http://127.0.0.1:5000
 
 ```bash
 git clone https://github.com/rixquli/menja-clic.git
-cd menja-clic
-cd sources
+cd menja-clic/sources
 pip install -r requirements.txt
 python main.py
 ```
