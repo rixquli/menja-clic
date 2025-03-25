@@ -8,9 +8,29 @@
 
 Suivre les étapes suivantes pour installer le projet localement :
 
-- Installer les librairies avec la commande `pip install -r requirements.txt`
-- pour lancer le serveur, executer la commande `python app.py`
-- pour accéder à l'interface, ouvrir un navigateur et se rendre à l'adresse `http://http://127.0.0.1:5000"`
+1. Se rendre dans le dossier du projet :
+
+```bash
+cd sources
+```
+
+2.Installer les librairies :
+
+```bash
+pip install -r requirements.txt
+```
+
+3.Lancer le serveur :
+
+```bash
+python main.py
+```
+
+4.Accéder à l'interface en ouvrant un navigateur à l'adresse :
+
+```bash
+http://127.0.0.1:5000
+```
 
 Sinon, vous pouvez accéder à l'interface en ligne à l'adresse suivante : [MENJA'CLICK](https://menjaclic-9d4ff48bbfb7.herokuapp.com)
 
