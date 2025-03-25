@@ -2,7 +2,7 @@ import sqlite3
 import string
 import random
 
-con = sqlite3.connect("db.db", check_same_thread=False)
+con = sqlite3.connect("../data/db.db", check_same_thread=False)
 cur = con.cursor()
     
 def login(code_barre, password):
