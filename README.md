@@ -57,6 +57,16 @@ python main.py
 
 Sinon, vous pouvez accéder à l'interface en ligne à l'adresse suivante : [MENJA'CLICK](https://menjaclic-9d4ff48bbfb7.herokuapp.com)
 
+## Pour se connecter à l'interface administrateur
+
+- Identifiant : `a`
+- Mot de passe : `a`
+
+## Pour se connecter à l'interface client
+
+- Identifiant : `d`
+- Mot de passe : `d`
+
 ## Liste des librairie
 
 - blinker==1.9.0
